@@ -14,6 +14,8 @@ public class User {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
   private String fullName;
+  private String userName;
+  private String email;
   private String password;
   private String role;
 
@@ -49,13 +51,31 @@ public class User {
     this.role = role;
   }
 
-  public User(Long id, String fullName, String password, String role) {
+  public String getUserName() {
+    return userName;
+  }
+
+  public void setUserName(String userName) {
+    this.userName = userName;
+  }
+
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public User(Long id, String fullName, String userName, String email, String password,
+      String role) {
     super();
     this.id = id;
     this.fullName = fullName;
+    this.userName = userName;
+    this.email = email;
     this.password = password;
     this.role = role;
   }
-
 
 }
