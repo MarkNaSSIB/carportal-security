@@ -19,13 +19,18 @@ public class UserServiceImpl implements UserService {
   @Override
   public User registerUser(UserModel userModel) {
     // generate user entity from user model
-    User newUser = new User(userModel.getFullName(), userModel.getUserName(), userModel.getEmail(),
-        passwordEncoder.encode(userModel.getPassword()), "USER");
-    /*
-     * User newUser = new User(); newUser.setFullName(userModel.getFullName());
-     * newUser.setEmail(userModel.getEmail()); newUser.setUserName(userModel.getUserName());
-     * newUser.setPassword(userModel.getPassword()); newUser.setRole("USER");
-     */
+    // User newUser = new User(userModel.getFullName(), userModel.getUserName(),
+    // userModel.getEmail(),
+    // passwordEncoder.encode(userModel.getPassword()), "USER");
+
+    User newUser = new User();
+    newUser.setFullName(userModel.getFullName());
+    newUser.setUserName(userModel.getUserName());
+    newUser.setEmail(userModel.getEmail());
+
+    newUser.setPassword(passwordEncoder.encode(userModel.getPassword()));
+    newUser.setRole("USER");
+
 
     userRepo.save(newUser);
     return newUser;

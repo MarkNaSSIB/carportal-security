@@ -87,7 +87,7 @@ public class User {
     this.role = role;
   }
 
-  User() {
+  public User() {
     // TODO Auto-generated constructor stub
   }
 }
